@@ -1,0 +1,54 @@
+<html>
+<h1>Display All Recipes</h1>
+
+<thead>
+  <tr>
+  </tr>
+</thead>
+
+<body bgproperties="fixed">
+
+  <div class="container">
+    <div class = "col-md-3">
+      <br><div class="btn btn-default" >
+        <%= link_to 'Create New Recipe', new_recipe_path %>
+      </div>
+    </div>
+  </div>
+  <br><br>
+
+    <div class="container">
+      <div class = "col-md-3">
+         <nav><div class="panel panel-default"><ul><%= paginate @recipe %><ul></div></nav>
+      <br>
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div>
+        <% @recipe.each do |recipe| %>
+        <div class = "col-md-3">
+          <div class="grid">
+            <div class="row">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h2 class="panel-title"><%= recipe.name %></h2>
+                  <h5> <%= 'Submitted By: ' %><%= recipe.user.name %></h5>
+
+                </div>
+                <div class="panel-body">
+                  <%= link_to (image_tag recipe.image_url(:large)) if recipe.image? %><br>
+                  <%= truncate(recipe.ingredient, :length => 50) %><br>
+                  <%= truncate(recipe.steps, :length => 50) %><br>
+                  <%= link_to recipe.image_url, recipe %><br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </body>
+</html>
