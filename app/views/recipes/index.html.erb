@@ -16,17 +16,20 @@
     </div>
   </div>
 
-  <br><br>
+  <br>
 
     <div class="container">
       <div class = "col-md-3">
-         <nav><div class="panel panel-default"><ul><%= paginate @recipe %><ul></div></nav>
+         <div class="panel panel-default">
+           <ul><%= paginate @recipe %><ul></div>
       <br>
+      </div>
     </div>
-  </div>
 
     <div class="container">
       <div>
+        <div class = "col-md-1">
+        </div>
         <% @recipe.each do |recipe| %>
         <div class = "col-md-3">
           <div class="grid">
@@ -42,7 +45,12 @@
                   <%= truncate(recipe.steps, :length => 50) %><br>
                   <%= link_to recipe.image_url, recipe %><br>
                   <br><div class="btn btn-default" >
-                    <%= link_to 'Leave a Comment', new_comment_path %>
+                        <%= link_to 'Leave a Comment', comment_path(recipe) %>
+                      </div>
+                      <div class="btn btn-default" >
+                        <%= link_to 'View #{recipe.comments.count} Comments', comments_path(recipe) %>
+                        <%=  recipe.comments.count %>
+                      </div>
                   </div>
                 </div>
               </div>

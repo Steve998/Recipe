@@ -8,6 +8,8 @@ get 'recipes/edit'
   resources :meals
 
   resources :comments
+  get 'comments/show'
+  
 
   resources :users
 

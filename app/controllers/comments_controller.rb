@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
 
   def index
     @comment = Comment.all.order('created_at DESC')
+
   end
 
   def create
@@ -16,6 +17,20 @@ class CommentsController < ApplicationController
 
   def new
     @comment = Comment.new
+  end
+
+  def show
+      @comment = Comment.all
+    
+  end
+
+
+  def update
+    if @comment.update(comment_params)
+      redirect_to @comment, notice: "A Comment was successfully updated"
+    else
+      render 'edit'
+    end
   end
 
 
