@@ -9,6 +9,10 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
   end
 
+  def edit
+
+  end
+
   def show
 
   end
@@ -22,6 +26,15 @@ class RecipesController < ApplicationController
       render 'new'
     end
   end
+
+  def update
+    if @recipe.update(recipe_params)
+      redirect_to @recipe, notice: "A Recipe was successfully updated"
+    else
+      render 'edit'
+    end
+  end
+
 
   private
 

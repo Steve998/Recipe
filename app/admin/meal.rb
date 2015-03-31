@@ -1,10 +1,10 @@
-ActiveAdmin.register Recipe do
+ActiveAdmin.register Meal do
 
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-   permit_params :name, :ingredient, :steps, :image, :url
+   permit_params :name, :user_id, :recipe_id
   #
   # or
   #
@@ -13,25 +13,15 @@ ActiveAdmin.register Recipe do
   #   permitted << :other if resource.something?
   #   permitted
   # end
-  # Table name: recipes
+  # Table name: meals
   #
   #  id         :integer          not null, primary key
   #  name       :string
-  #  ingredient :text
-  #  steps      :text
   #  user_id    :integer
-  #  image      :string
-  #  url        :string
+  #  recipe_id  :integer
   #  created_at :datetime         not null
   #  updated_at :datetime         not null
+  #
 
-  index do
-      selectable_column
-      column :name
-      column :user_id
-      column :ingredient
-      column :steps
-      column :image
-      actions
-    end
+
 end

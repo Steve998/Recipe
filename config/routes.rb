@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'recipes/new'
 
   resources :recipes
+get 'recipes/edit'
 
   resources :meals
 
