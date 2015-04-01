@@ -1,6 +1,12 @@
 <h1> Edit This Recipe </h1>
 
-<%= render 'form' %>
+<ul>
+  <% @recipe.comments.each do |comment| %>
+    <li><h4><%= comment.user.name + ' made this comment: ' %></h4></li>
+    <li><%= comment.description %></li>
 
+  <% end %>
+</ul>
+<%=  %>
 <%= link_to 'Back', recipes_path %>
 <%= link_to 'Return to Home Page', root_path %>

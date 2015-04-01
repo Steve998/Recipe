@@ -1,41 +1,44 @@
 class CommentsController < ApplicationController
+  before_action :find_recipe
 
   def index
-    @comment = Comment.all.order('created_at DESC')
-
+    @comment = @recipe.comments.all.order('created_at DESC')
   end
 
   def create
-    @comment = Comment.new(comment_params)
-
+     @comment = @recipe.comments.new(comment_params)
+     @comment.user = current_user
     if @comment.save
-      redirect_to @comment, notice: "Comment Saved Successfully"
+      redirect_to @recipe, notice: "Comment Saved Successfully"
     else
       render 'new'
     end
   end
 
   def new
-    @comment = Comment.new
+    @comment = @recipe.comments.new
   end
 
   def show
-      @comment = Comment.all
-    
+    @comment = @recipe.comments.find(params[:id])
   end
 
-
   def update
-    if @comment.update(comment_params)
-      redirect_to @comment, notice: "A Comment was successfully updated"
+
+    if @comment.update
+      redirect_to [@recipe, @comment], notice: "A Comment was successfully updated"
     else
       render 'edit'
     end
   end
 
-
   private
+
   def comment_params
-    params.require(:comment).permit(:description, :user_id, :recipe_id)
+    params.require(:comment).permit( :description)
+  end
+
+  def find_recipe
+    @recipe = Recipe.find(params[:recipe_id])
   end
 end

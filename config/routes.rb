@@ -2,14 +2,16 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   get 'recipes/new'
 
-  resources :recipes
-get 'recipes/edit'
+  resources :recipes do
+    resources :comments
+  end
+
 
   resources :meals
 
-  resources :comments
-  get 'comments/show'
-  
+  # resources :comments
+
+
 
   resources :users
 

@@ -16,41 +16,47 @@
     </div>
   </div>
 
-  <br>
-
-    <div class="container">
-      <div class = "col-md-3">
-         <div class="panel panel-default">
-           <ul><%= paginate @recipe %><ul></div>
-      <br>
+  <div class="container">
+    <div class = "col-md-2">
+      <div class="btn btn-default" >
+        <%= link_to 'Create New Meal', new_meal_path %>
       </div>
     </div>
+  </div>
 
-    <div class="container">
-      <div>
-        <div class = "col-md-1">
+  <div class="container">
+    <div class = "col-md-3">
+      <div class="panel panel-default">
+        <ul><%= paginate @recipe %><ul></div>
+          <br>
         </div>
-        <% @recipe.each do |recipe| %>
-        <div class = "col-md-3">
-          <div class="grid">
-            <div class="row">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h2 class="panel-title"><%= recipe.name %></h2>
-                  <h5> <%= 'Submitted By: ' %><%= recipe.user.name %></h5>
-                </div>
-                <div class="panel-body">
-                  <%= link_to (image_tag recipe.image_url(:large)) if recipe.image? %><br>
-                  <%= truncate(recipe.ingredient, :length => 50) %><br>
-                  <%= truncate(recipe.steps, :length => 50) %><br>
-                  <%= link_to recipe.image_url, recipe %><br>
-                  <br><div class="btn btn-default" >
-                        <%= link_to 'Leave a Comment', comment_path(recipe) %>
-                      </div>
-                      <div class="btn btn-default" >
-                        <%= link_to 'View #{recipe.comments.count} Comments', comments_path(recipe) %>
-                        <%=  recipe.comments.count %>
-                      </div>
+      </div>
+
+      <div class="container">
+        <div>
+          <div class = "col-md-1">
+          </div>
+          <% @recipe.each do |recipe| %>
+          <div class = "col-md-3">
+            <div class="grid">
+              <div class="row">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h2 class="panel-title"><%= recipe.name %></h2>
+                    <h5> <%= 'Submitted By: ' %><%= recipe.user.name %></h5>
+                  </div>
+                  <div class="panel-body">
+                    <%= link_to (image_tag recipe.image_url(:large)) if recipe.image? %><br>
+                    <%= truncate(recipe.ingredient, :length => 50) %><br>
+                    <%= truncate(recipe.steps, :length => 50) %><br>
+                    <%= link_to recipe.image_url, recipe %><br>
+                    <br><div class="btn btn-default" >
+                      <%= link_to 'Leave a Comment', new_recipe_comment_path(recipe) %>
+                    </div>
+                    <div class="btn btn-default" >
+                      <%= link_to 'View Comments', recipe_comments_path(recipe) %>
+                      <%= recipe.comments.count %>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -61,4 +67,4 @@
       </div>
     </div>
   </body>
-</html>
+  </html>
