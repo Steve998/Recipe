@@ -1,18 +1,27 @@
 class MealsController < ApplicationController
 
+
+  def index
+    @meal = Meal.all
+    @meal = @meal.recipes.all
+
+  end
+
   def new
     @meal = Meal.new
   end
 
   def create
-    @meal = Meal.new(meal_params)
-
+    @recipe = Recipe.new(recipe_params)
     if @meal.save
       redirect_to @meal, notice: "Created new Meal successfully"
     else
       render 'new'
     end
 
+  end
+
+  def edit
   end
 
   def show
@@ -35,7 +44,7 @@ class MealsController < ApplicationController
   end
 
   def find_meal
-    @recipe = Meal.find(params[:id])
+      @meal = Meal.find(params[:id])
   end
 
 end

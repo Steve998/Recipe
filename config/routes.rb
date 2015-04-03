@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   get 'recipes/new'
+  get 'account/edit'
 
   resources :recipes do
     resources :comments
@@ -8,11 +9,6 @@ Rails.application.routes.draw do
 
 
   resources :meals
-
-  # resources :comments
-
-
-
   resources :users
 
 root 'recipes#index'

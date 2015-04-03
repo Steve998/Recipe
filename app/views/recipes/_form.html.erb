@@ -38,6 +38,11 @@
 </div>
 
 <div class="field">
+  <%= f.label :meal %><br>
+  <%= f.select :meal, Meal.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'} %>
+</div>
+
+<div class="field">
   <%= f.label :url %><br>
   <%= f.text_field :url %>
 </div>

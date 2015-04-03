@@ -11,6 +11,8 @@
 #  url        :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  comment_id :integer
+#  meal_id    :integer
 #
 
 class Recipe < ActiveRecord::Base
