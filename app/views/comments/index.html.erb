@@ -6,7 +6,8 @@
 
 
       <h4> <%= comment.description %> </h4>
-      <h4> <%= comment.recipe_id %> </h4>
+  
+      <h4> <%= comment.user.name %> </h4>
   <% end %>
 
   <%= link_to 'Back to Recipes', recipes_path %>

@@ -1,0 +1,11 @@
+
+  <html>
+  <h1> Users Index </h1>
+  <head> </head>
+
+    <% @user.each do |user| %>
+        <h4> <%= user.name %> </h4>
+    <% end %>
+
+    <%= link_to 'Main Recipe Page', recipes_path %>
+  </html>

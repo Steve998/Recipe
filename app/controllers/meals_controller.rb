@@ -4,7 +4,6 @@ class MealsController < ApplicationController
   def index
     @meal = Meal.all
     @meal = @meal.recipes.all
-
   end
 
   def new

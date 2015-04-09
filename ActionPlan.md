@@ -5,13 +5,15 @@
 - Active Admin functionality - User - admin role flag in User model
 - Comment section for individual recipes and meal menus
 - Rails native authorize
+- Make it look good
 - Send email
 - Egar loading
 - Search functionality
 
 #Time permitting items: (in no particular order)
-- Favorite recipes
+- User Favorite recipes
 - Select/unselect recipes to be part of a meal menu
+- email for users as they sign up
 
 #User Stories
 
@@ -19,7 +21,7 @@
 - User should be able to create new recipe
 - User should be able to edit personal recipe
 - User or Visitor should be able to comment on recipe
-- User should recive email
+- User should receive email
 - Users should be able to edit their profile
 - Users should be able to upload an avatar
 - Users should be able to browse recipes (paginated using kaminari)

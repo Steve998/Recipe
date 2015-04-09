@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+  get 'users/new'
+  get 'login' => 'account#new'
+  post 'login' => 'account#create'
+  delete 'logout' => 'account#destroy'
+
   ActiveAdmin.routes(self)
   get 'recipes/new'
   get 'account/edit'
+  patch 'account/update'
+
 
   resources :recipes do
     resources :comments
@@ -10,6 +18,8 @@ Rails.application.routes.draw do
 
   resources :meals
   resources :users
+  get 'signup'  => 'users#new'
+
 
 root 'recipes#index'
 

@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   before_action :find_recipe, only: [:show, :edit, :update, :destroy]
 
   def index
-    @recipe = Recipe.all.order("created_at DESC").page(params[:page]).per(7)
+    @recipe = Recipe.all.order("created_at DESC").page(params[:page]).per(5)
   end
 
   def new
