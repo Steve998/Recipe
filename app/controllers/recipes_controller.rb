@@ -2,7 +2,11 @@ class RecipesController < ApplicationController
   before_action :find_recipe, only: [:show, :edit, :update, :destroy]
 
   def index
-    @recipe = Recipe.all.order("created_at DESC").page(params[:page]).per(5)
+    if params[:search]
+      @recipe = Recipe.search(params[:search]).order("created_at DESC").page(params[:page]).per(5)
+    else
+      @recipe = Recipe.all.order("created_at DESC").page(params[:page]).per(5)
+    end
   end
 
   def new

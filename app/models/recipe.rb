@@ -20,4 +20,10 @@ class Recipe < ActiveRecord::Base
   belongs_to :meal
   has_many :comments
   mount_uploader :image, AvatarUploader
+
+
+  def self.search(query)
+    where("name like ?", "%#{query}%")
+  end
+
 end
