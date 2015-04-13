@@ -46,6 +46,8 @@ gem 'kaminari'
 
 # bootstrap Sass
 gem 'bootstrap-sass', '~> 3.3.4.1'
+# Send Grid for email
+gem 'sendgrid', '~> 1.2.0'
 
 group :development do
   gem "better_errors"

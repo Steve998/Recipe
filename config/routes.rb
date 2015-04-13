@@ -4,12 +4,11 @@ Rails.application.routes.draw do
   get 'login' => 'account#new'
   post 'login' => 'account#create'
   delete 'logout' => 'account#destroy'
-
-  ActiveAdmin.routes(self)
   get 'recipes/new'
   get 'account/edit'
   patch 'account/update'
 
+  ActiveAdmin.routes(self)
 
   resources :recipes do
     resources :comments

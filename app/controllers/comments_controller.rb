@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
      @comment = @recipe.comments.new(comment_params)
      @comment.user = current_user
     if @comment.save
-      redirect_to @recipe, notice: "Comment Saved Successfully"
+      redirect_to recipe_comments_path, notice: "Comment Saved Successfully"
     else
       render 'new'
     end

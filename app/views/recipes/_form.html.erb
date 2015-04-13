@@ -18,34 +18,21 @@
 
 </div>
 <div class="field">
-  <%= f.label :name %><br>
-  <%= f.text_field :name %>
+  <br><h3 class="h3mod"><%= f.label :name %></h3>
+  <%= f.text_field :name, :size => "82%x2%" %><br>
 </div>
 
 <div class="field">
-  <%= f.label :ingredient %><br>
-  <%= f.text_area :ingredient %>
+  <br><h3 class="h3mod"><%= f.label :ingredient %></h3><br>
+  <%= f.text_area :ingredient, :size => "80%x8%" %><br>
 </div>
 
 <div class="field">
-  <%= f.label :steps %><br>
-  <%= f.text_area :steps %>
+  <br><h3 class="h3mod"><%= f.label :steps %></h3><br>
+  <%= f.text_area :steps, :size => "80%x8%"  %><br>
 </div>
 
-<div class="field">
-  <%= f.label :user_id %><br>
-  <%= f.select :user_id, User.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'} %>
-</div>
 
-<div class="field">
-  <%= f.label :meal %><br>
-  <%= f.select :meal, Meal.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'} %>
-</div>
-
-<div class="field">
-  <%= f.label :url %><br>
-  <%= f.text_field :url %>
-</div>
 
 <div class="actions">
   <%= f.submit %>
