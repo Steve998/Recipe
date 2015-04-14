@@ -5,5 +5,5 @@ class RecipeMailer < ApplicationMailer
     @user = user
     @url = 'http://www.google.com'
     mail(to: @user.email, subject: 'test email for new user')
-
+  end
 end

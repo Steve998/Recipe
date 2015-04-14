@@ -16,10 +16,14 @@
 #
 
 class Recipe < ActiveRecord::Base
+  scope :created_before_today, -> {where(created_at: '< DateTime.now')}
+  scope :name_testdata, -> {where(name: 'testdata')}
+
   belongs_to :user
   belongs_to :meal
   has_many :comments
   mount_uploader :image, AvatarUploader
+
 
 
   def self.search(query)

@@ -13,6 +13,11 @@
 #
 
 class User < ActiveRecord::Base
+
+  scope :admin_only,  -> { where(admin: true) }
+  scope :non_admin, -> { where(admin: false) }
+  
+
   has_many :recipes
   has_many :meals
   has_many :comments

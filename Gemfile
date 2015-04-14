@@ -46,11 +46,17 @@ gem 'kaminari'
 
 # bootstrap Sass
 gem 'bootstrap-sass', '~> 3.3.4.1'
-# Send Grid for email
+# Send Grid for email local
 gem 'sendgrid', '~> 1.2.0'
+# Send Email Heroku
+gem 'mail'
+
 
 group :development do
+  # Error control
   gem "better_errors"
+  # email in development only
+  gem "letter_opener"
 end
 # Use postgres and the Heroku rails gem for Heroku
 group :production do

@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
 
-
 def index
   @user = User.all
 end
@@ -19,8 +18,8 @@ end
     @user.admin = false
     if @user.save
       sign_in @user
-      recipe_mailer.welcome_email(@user).deliver
-      flash[:success] = "This is Create User "
+      RecipeMailer.welcome_email(@user).deliver_now
+      flash[:success] = "User Created Successfully"
       redirect_to @user
 
     else

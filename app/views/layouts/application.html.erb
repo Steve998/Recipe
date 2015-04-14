@@ -19,7 +19,7 @@
 <body>
   <nav class="navbar navbar-default">
     <ul>
-      <ul><h4>Welcome <% if signed_in? %><%= link_to @current_user.name, account_edit_path %><% end %></h4></ul>
+      <ul><h4>Welcome <br><br><% if signed_in? %><%= link_to @current_user.name, account_edit_path %><% end %></h4></ul>
       <ul>
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -31,7 +31,7 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" >
-        <img style="max-width:100px; margin-top: -53px;"
+        <img style="max-width:90px; margin-top: -53px; margin-right: 40;"
              src="http://theironyard.com/images/standards-guide/TIY-logo-thumb-WHITE.jpg"></a>
       </div>
 
@@ -50,8 +50,6 @@
         <% end %>
 
           </div>
-
-          
         </form>
 
         <ul class="nav navbar-nav navbar-right">
