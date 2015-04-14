@@ -1,9 +1,9 @@
 class RecipeMailer < ApplicationMailer
-  default from: "steve07461@hotmail.com"
+  default from: 'notifications@agile-brushlands-3993.herokuapp.com'
 
   def welcome_email(user)
     @user = user
-    @url = 'http://www.google.com'
+    @url = 'http://agile-brushlands-3993.herokuapp.com'
     mail(to: @user.email, subject: 'test email for new user')
   end
 end
