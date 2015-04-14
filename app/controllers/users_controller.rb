@@ -19,7 +19,7 @@ end
     if @user.save
       sign_in @user
       RecipeMailer.welcome_email(@user).deliver_later
-      #flash[:success] = "User Created Successfully"
+      flash[:success] = "User Created Successfully"
       redirect_to @user
 
     else
