@@ -2,13 +2,16 @@
   word-wrap: break-word;
 }
 
+.backgroundimage {
+  background-image: url("http://www.cbmcard.com/demo/HTML5/300111463/images/bg1.jpg");
+}
+
 body {
 
   color: #5555;
   background-repeat:no-repeat;
   background-size:contain;
   background-position:center;
-  background-image: url("http://www.cbmcard.com/demo/HTML5/300111463/images/bg1.jpg");
   background-attachment: fixed;
 
 }

@@ -16,8 +16,9 @@
 #
 
 class Recipe < ActiveRecord::Base
-  scope :created_before_today, -> {where(created_at: '< DateTime.now')}
+#  scope :created_before_today, -> {where(created_at:  DateTime.now)}
   scope :name_testdata, -> {where(name: 'testdata')}
+  scope :my_recipes, ->  (current_user) { where(user_id: current_user) }
 
   belongs_to :user
   belongs_to :meal

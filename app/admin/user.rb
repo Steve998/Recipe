@@ -1,6 +1,7 @@
 ActiveAdmin.register User do
 scope :admin_only
 scope :non_admin
+scope :name_guest
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

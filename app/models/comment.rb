@@ -11,7 +11,8 @@
 #
 
 class Comment < ActiveRecord::Base
-  scope :comment26, -> {where(id: '= 26')}
+
+  scope :my_comment, ->  (current_user) { where(user_id: current_user) }
 
   belongs_to :recipe
   belongs_to :user

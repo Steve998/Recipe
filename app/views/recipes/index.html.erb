@@ -1,72 +1,42 @@
-<html>
-<title>Title for this page!! </title>
 
-<body>
+  <%= link_to 'Create A New Recipe', new_recipe_path, class: "btn" %>
+<p><br/></p>
+    <div class="row">
+      <% @recipe.each do |recipe| %>
+        <div class="col-md-5">
 
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2 class="panel-title"><%= recipe.name %></h2>
+              <h5> <%= 'Submitted By: ' %><%= recipe.user.name %></h5>
+            </div>
+            <div class="panel-body divwordwrap">
 
-  <div class="container">
-    <div class="group">
-      <br><div class = "col-md-4">
-
-        <h2 class="h2mod">
-          <%= link_to 'Create A New Recipe', new_recipe_path %>
-        </h2>
-
+              <%= link_to (image_tag recipe.image_url(:large)) if recipe.image? %><br>
+              <%= truncate(recipe.ingredient, :length => 50) %><br>
+              <%= truncate(recipe.steps, :length => 50) %><br>
+              <%= link_to recipe.image_url, recipe %><br>
+              <br><div class="btn" >
+                <%= link_to 'Leave a Comment', new_recipe_comment_path(recipe) %>
+              </div>
+              <div class="btn" >
+                <%= link_to 'View Comments', recipe_comments_path(recipe) %>
+                <%= recipe.comments.count %>
+              </div>
+              <br><div >
+                <%= recipe.meal_id %>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
+        </div>
+      <% end %>
     </div>
 
-    <div class = "col-md-8">
 
+
+  <div class="row">
+    <div class = "col-md-12">
+      <ul><%= paginate @recipe %><ul>
     </div>
-  </div><br>
-
-  <div class="container-fluid">
-
-    <% @recipe.each do |recipe| %>
-    <div class="col-md-4">
-
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h2 class="panel-title"><%= recipe.name %></h2>
-          <h5> <%= 'Submitted By: ' %><%= recipe.user.name %></h5>
-        </div>
-        <div class="panel-body divwordwrap">
-
-          <%= link_to (image_tag recipe.image_url(:large)) if recipe.image? %><br>
-          <%= truncate(recipe.ingredient, :length => 50) %><br>
-          <%= truncate(recipe.steps, :length => 50) %><br>
-          <%= link_to recipe.image_url, recipe %><br>
-          <br><div class="btn" >
-            <%= link_to 'Leave a Comment', new_recipe_comment_path(recipe) %>
-          </div>
-          <div class="btn" >
-            <%= link_to 'View Comments', recipe_comments_path(recipe) %>
-            <%= recipe.comments.count %>
-          </div>
-          <br><div >
-            <%= recipe.meal_id %>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <% end %>
-
   </div>
-
-
-  <div class="container-fluid">
-
-    <div class = "col-md-4">
-      <div class="btn btn-default btn-block" >
-
-        <ul><%= paginate @recipe %><ul>
-        </div>
-      </div>
-    </div>
-
-  </body>
-  </html>

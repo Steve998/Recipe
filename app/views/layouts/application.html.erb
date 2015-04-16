@@ -17,79 +17,14 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-default">
-    <ul>
-      <ul><h4>Welcome <br><br><% if signed_in? %><%= link_to @current_user.name, account_edit_path %><% end %></h4></ul>
-      <ul>
-    <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" >
-        <img style="max-width:90px; margin-top: -53px; margin-right: 40;"
-             src="http://theironyard.com/images/standards-guide/TIY-logo-thumb-WHITE.jpg"></a>
-      </div>
+  <div class="container">
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
+    <%= render partial: 'layouts/nav' %>
 
 
-        </ul>
-        <form class="navbar-form navbar-left" role="search">
-          <div class="form-group">
-
-        <%= form_tag(users_path, :method => "get", id: "Search_Form") do |q| %>
-          <%= text_field_tag :search, params[:search], placeholder: "Search Recipes" %>
-          <%= submit_tag "search", :name => nil %>
-        <% end %>
-
-          </div>
-        </form>
-
-        <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Home",   root_path %></li>
-          <li><%= link_to "Sign Up", signup_path %></li>
-          <% if signed_in? %>
-          <li class="dropdown">
-
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              My Account <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Profile", current_user %></li>
-              <li class="divider"></li>
-              <li>
-                <%= link_to "Log out", logout_path, method: "delete" %>
-              </li>
-            </ul>
-          </li>
-          <% else %>
-          <li><%= link_to "Log in", login_path %></li>
-          <% end %>
-
-        </ul>
-      </div><!-- /.navbar-collapse -->
-
-    </div><!-- /.container-fluid -->
-
-  </ul>
-</ul>
-  </nav>
-
-</nav>
-
-</div>
-
-<div class="container">
-<%= yield %>
-</div>
+    <%= yield %>
+  </div>
 
 
-  </body>
-  </html>
+</body>
+</html>

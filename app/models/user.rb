@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
 
   scope :admin_only,  -> { where(admin: true) }
   scope :non_admin, -> { where(admin: false) }
-  
+  scope :name_guest, -> { where(name: 'Guest') }
 
   has_many :recipes
   has_many :meals

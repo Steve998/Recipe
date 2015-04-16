@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
 
-  before_action :current_user
+  before_action :authenticate, :current_user
+
 
   def authenticate_admin_user!
    redirect_to root_path if !signed_in? || !current_user.admin?
@@ -15,6 +16,15 @@ class ApplicationController < ActionController::Base
   def current_user
    @current_user ||= User.find_by(id: session[:user_id])
 
+  end
+
+  def authenticate
+    if signed_in?
+      return true
+    else
+      flash[:notice] = 'Please sign in first.'
+      redirect_to login_path
+    end
   end
 
   def signed_in?

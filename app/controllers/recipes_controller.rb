@@ -5,7 +5,7 @@ class RecipesController < ApplicationController
     if params[:search]
       @recipe = Recipe.search(params[:search]).order("created_at DESC").page(params[:page]).per(5)
     else
-      @recipe = Recipe.all.order("created_at DESC").page(params[:page]).per(5)
+      @recipe = Recipe.my_recipes(current_user).order("created_at DESC").page(params[:page]).per(5)
     end
   end
 
