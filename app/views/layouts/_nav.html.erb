@@ -15,7 +15,7 @@
       <% end %>
       <% if current_user %>
 
-        <%= form_tag(users_path, :method => "get", id: "Search_Form", class:"navbar-form navbar-left" ) do |q| %>
+        <%= form_tag(recipes_path, :method => "get", id: "Search_Form", class:"navbar-form navbar-left" ) do |q| %>
           <div class="form-group">
             <%= text_field_tag :search, params[:search], placeholder: "Search Recipes", class: "form-control" %>
           </div>
