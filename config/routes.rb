@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'recipes/new'
   get 'account/edit'
   patch 'account/update'
+  get 'ingredients/index'
+
 
   ActiveAdmin.routes(self)
 

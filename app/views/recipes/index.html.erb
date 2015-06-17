@@ -23,6 +23,12 @@
                 <%= link_to 'View Comments', recipe_comments_path(recipe) %>
                 <%= recipe.comments.count %>
               </div>
+
+              <div class="btn" >
+                <%= link_to 'New Ingredients', ingredients_index_path %>
+                <%= recipe.comments.count %>
+              </div>
+
               <br><div >
                 <%= recipe.meal_id %>
               </div>

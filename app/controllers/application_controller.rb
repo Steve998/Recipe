@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
     if signed_in?
       return true
     else
-      flash[:notice] = 'Please sign in first.'
+      flash[:notice] = 'You are not currently signed in. Please sign in first.'
       redirect_to login_path
     end
   end
